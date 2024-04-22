@@ -1,0 +1,6 @@
+[submodule "varcommon"]
+	path = varcommon
+	url = git@gitlab2.pekauto.com:development/firmware/libs/stplotvarcommon.git
+[submodule "libconfig"]
+	path = libconfig
+	url = https://github.com/hyperrealm/libconfig.git
