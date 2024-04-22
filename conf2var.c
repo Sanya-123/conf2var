@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libconfig.h"
-#include "varcommon.h"
+#include "conf2var.h"
 
 void write_node_config(varloc_node_t* node, config_setting_t* cfg){
     if (node == NULL){

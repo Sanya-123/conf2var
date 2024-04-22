@@ -22,8 +22,8 @@ extern "C" {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
-// parse elf file for static variables and return root node
-varloc_node_t*  varloc_open_elf(char* file);
+int var2conf(varloc_node_t* root_node, char* conf_path);
+varloc_node_t* conf2var(char* conf_path);
 
 #ifdef __cplusplus
 }
