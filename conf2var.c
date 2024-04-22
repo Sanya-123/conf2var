@@ -70,8 +70,8 @@ varloc_node_t* read_node_config(config_setting_t* cfg){
             ret = node;
         }
         config_setting_t *var = config_setting_get_elem(cfg, i);
-        char* name;
-        char* ctype_name;
+        const char* name;
+        const char* ctype_name;
         if(config_setting_lookup_string(var, "name", &name)){
             strcpy(node->name, name);
         }

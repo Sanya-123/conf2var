@@ -9,18 +9,11 @@ project(
   LANGUAGES C CXX
 )
 
-# set(EXPORT_COMPILE_COMMANDS ON)
-# set(CMAKE_BUILD_TYPE Debug)
-# set(CMAKE_CXX_CREATE_STATIC_LIBRARY OFF)
-# set(BUILD_SHARED_LIBS OFF)
-# set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-
 include(CheckSymbolExists)
 add_subdirectory(libconfig/lib/)
 
 
-add_library(${PROJECT_NAME} STATIC
+add_library(${PROJECT_NAME}
     conf2var.h
     conf2var.c
     varcommon/varcommon.c
