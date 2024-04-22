@@ -22,15 +22,15 @@ void write_node_config(varloc_node_t* node, config_setting_t* cfg){
         config_setting_set_int(size, node->address.size_bits);
         config_setting_t* offset = config_setting_add(group, "offset", CONFIG_TYPE_INT);
         config_setting_set_int(offset, node->address.offset_bits);
-        config_setting_t* offset = config_setting_add(group, "sign", CONFIG_TYPE_INT);
+        config_setting_t* sign = config_setting_add(group, "sign", CONFIG_TYPE_INT);
         if (node->is_signed){
-            config_setting_set_int(offset, VARLOC_SIGNED);
+            config_setting_set_int(sign, VARLOC_SIGNED);
         }
         else if (node->is_float){
-            config_setting_set_int(offset, VARLOC_FLOAT);
+            config_setting_set_int(sign, VARLOC_FLOAT);
         }
         else{
-            config_setting_set_int(offset, VARLOC_UNSIGNED);
+            config_setting_set_int(sign, VARLOC_UNSIGNED);
         }
     }
     else{
