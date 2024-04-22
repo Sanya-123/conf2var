@@ -15,7 +15,7 @@ extern "C" {
 
 /* Exported includes ---------------------------------------------------------*/
 #include <stdint.h>
-#include "varcommon.h"
+#include "varcommon/varcommon.h"
 /* Exported types ------------------------------------------------------------*/
 
 /* Exported constants --------------------------------------------------------*/
