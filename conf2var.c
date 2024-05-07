@@ -113,7 +113,7 @@ int var2conf(varloc_node_t* root_node, char* conf_path){
         return(EXIT_FAILURE);
     }
 
-    fprintf(stderr, "New configuration successfully written to: %s\n",
+    fprintf(stdout, "New configuration successfully written to: %s\n",
             conf_path);
 
     config_destroy(&cfg);
