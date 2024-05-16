@@ -32,14 +32,11 @@ target_link_libraries(${PROJECT_NAME} PRIVATE config)
 
 if (WIN32)
     install(TARGETS conf2var DESTINATION ${CMAKE_BINARY_DIR}/lib)
-    install(TARGETS config
-        LIBRARY DESTINATION ${CMAKE_BINARY_DIR}/lib
-        RUNTIME DESTINATION ${CMAKE_BINARY_DIR}/lib
+    add_custom_target(copy_config_libs DEPENDS config config++
+        COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/libconfig/lib/*.dll ${CMAKE_BINARY_DIR}/lib/
+        COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/libconfig/lib/*.dll.a ${CMAKE_BINARY_DIR}/lib/
     )
-    install(TARGETS config++
-        LIBRARY DESTINATION ${CMAKE_BINARY_DIR}/lib
-        RUNTIME DESTINATION ${CMAKE_BINARY_DIR}/lib
-    )
+    add_dependencies(conf2var copy_config_libs)
 endif()
 
 
