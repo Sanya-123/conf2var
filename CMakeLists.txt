@@ -30,6 +30,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE config)
 
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+
+set_target_properties(config PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+)
+
 if (WIN32)
     install(TARGETS conf2var DESTINATION ${CMAKE_BINARY_DIR}/lib)
     add_custom_target(copy_config_libs DEPENDS config config++
