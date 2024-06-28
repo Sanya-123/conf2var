@@ -4,18 +4,23 @@ set(CMAKE_AUTOUIC OFF)
 set(CMAKE_AUTOMOC OFF)
 set(CMAKE_AUTORCC OFF)
 
-set(PROJECT_NAME conf2var)
+# Extract version from configure.ac.
+set(VERSION_REGEX "^AC_INIT\\(\\[libconfig\\],[ \t]*\\[([0-9.]+)\\],.*")
+file(STRINGS "libconfig/configure.ac"
+  VERSION_STRING REGEX ${VERSION_REGEX})
+string(REGEX REPLACE ${VERSION_REGEX} "\\1" VERSION_STRING "${VERSION_STRING}")
 
+project(libconfig LANGUAGES C CXX VERSION ${VERSION_STRING})
+include(CheckSymbolExists)
+add_subdirectory(libconfig/lib/)
+
+set(PROJECT_NAME conf2var)
 
 project(
   ${PROJECT_NAME}
   VERSION 0.1
   LANGUAGES C CXX
 )
-
-include(CheckSymbolExists)
-add_subdirectory(libconfig/lib/)
-
 
 add_library(${PROJECT_NAME}
     conf2var.h
