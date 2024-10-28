@@ -79,7 +79,7 @@ varloc_node_t* read_node_config(config_setting_t* cfg){
             strcpy(node->ctype_name, ctype_name);
         }
         int sign = 0;
-        config_setting_lookup_int(var, "nodetype", &node->var_type);
+        config_setting_lookup_int(var, "nodetype", (int*)&node->var_type);
         config_setting_lookup_int(var, "address", &node->address.base);
         config_setting_lookup_int(var, "size", &node->address.size_bits);
         config_setting_lookup_int(var, "offset", &node->address.offset_bits);
@@ -87,7 +87,7 @@ varloc_node_t* read_node_config(config_setting_t* cfg){
         if (sign == VARLOC_SIGNED){node->is_signed = 1;}
         if (sign == VARLOC_FLOAT){node->is_float = 1;}
 
-        config_setting_t* members = config_lookup(&var, "members");
+        config_setting_t* members = config_lookup((const config_t*)&var, "members");
         if(members != NULL){
             node->child = read_node_config(members);
             if (node->child){
